@@ -88,14 +88,14 @@ export default function Navbar() {
               {/* Dropdown */}
               {item.hasDropdown && activeDropdown === index && (
                 <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 mr-10 rounded-sm z-50">
-                  <div className="p-4">
+                  <div className="p-2">
                     <p className="text-sm text-gray-700 font-semibold">{item.label}</p>
                     <div className="mt-2 space-y-1">
                       {item.options?.map((option, idx) => (
                         <Link
                           key={idx}
                           to={`/path-for/${option.toLowerCase().replace(/\s+/g, '-')}`} // Example path
-                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded whitespace-nowrap"
+                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
                         >
                           {option}
                         </Link>

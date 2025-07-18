@@ -1,5 +1,6 @@
 import Layout from "./components/Layout"
 import Navbar from "./components/Navigation"
+import Home from "./pages"
 
 function App() {
 
@@ -7,6 +8,7 @@ function App() {
     <>
       <Layout>
         <Navbar/>
+        <Home/>
 
       </Layout>
     </>
