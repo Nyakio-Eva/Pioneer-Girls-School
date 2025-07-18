@@ -1,19 +1,98 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link } from 'react-router-dom';
 
 const navItems = [
-  { label: "Home", hasDropdown: false },
-  { label: "Be Inspired", hasDropdown: false },
-  { label: "Inspire", hasDropdown: true, options: ["Inspired History", "Inspired Leadership"] },
-  { label: "Pathways", hasDropdown: true, options: ["TailorMade Pathways", "Science Technology Engineering & Mathematics", "Social Sciences", "Arts & Sport Science", "Aviation", "Marine"] },
-  { label: "Student Life", hasDropdown: true, options: ["Soccer", "Swimming", "BasketBall", "Golf", "Peformance Arts", "Art Club", "Science Club", "Debate Club"] },
-  { label: "Boarding Life", hasDropdown: true, options: ["Dorm Life", "Dance Life", "Health & Wellness", "Security", "St. John Ambulance", "Nursing Care", "Chaplaincy"] },
-  { label: "Join Us", hasDropdown: true, options: ["Join Grade 10", "Join Form 2", "Join Form 3", "Enquire"] },
-  { label: "Fees", hasDropdown: true, options: ["Grade 10", "Form 2", "Form 3", "Form 4", "Terms & Conditions"] },
-  // { label: "Our Location", hasDropdown: false },
-  { label: "Get Access", hasDropdown: true, options: ["Calendar of Events", "Student Access", "Staff Access"] },
+  { label: "Home", path: "/", hasDropdown: false },
+  { label: "Be Inspired", path: "/be-inspired", hasDropdown: false },
+  { 
+    label: "Inspire", 
+    path: "/inspired", 
+    hasDropdown: true, 
+    options: [
+      { label: "Inspired History", path: "/inspired/history" },
+      { label: "Inspired Leadership", path: "/inspired/leadership" },
+    ] 
+  },
+  { 
+    label: "Pathways", 
+    path: "/pathways", 
+    hasDropdown: true, 
+    options: [
+      { label: "TailorMade Pathways", path: "/pathways/tailormade" },
+      { label: "Science Technology Engineering & Mathematics", path: "/pathways/stem" },
+      { label: "Social Sciences", path: "/pathways/social-sciences" },
+      { label: "Arts & Sport Science", path: "/pathways/arts-sports" },
+      { label: "Aviation", path: "/pathways/aviation" },
+      { label: "Marine", path: "/pathways/marine" },
+      { label: "AI studies", path: "/pathways/AI" },
+    ] 
+  },
+  { 
+    label: "Student Life", 
+    path: "/student-life", 
+    hasDropdown: true, 
+    options: [
+      { label: "Soccer", path: "/student-life/soccer" },
+      { label: "Swimming", path: "/student-life/swimming" },
+      { label: "BasketBall", path: "/student-life/basketball" },
+      { label: "Golf", path: "/student-life/golf" },
+      { label: "Peformance Arts", path: "/student-life/performance-arts" },
+      { label: "Art Club", path: "/student-life/art-club" },
+      { label: "Science Club", path: "/student-life/science-club" },
+      { label: "Debate Club", path: "/student-life/debate-club" },
+    ] 
+  },
+  { 
+    label: "Boarding Life", 
+    path: "/boarding-life", 
+    hasDropdown: true, 
+    options: [
+      { label: "Dorm Life", path: "/boarding-life/dorm-life" },
+      { label: "Dance Life", path: "/boarding-life/dance-life" },
+      { label: "Health & Wellness", path: "/boarding-life/health-wellness" },
+      { label: "Security", path: "/boarding-life/security" },
+      { label: "St. John Ambulance", path: "/boarding-life/st-john-ambulance" },
+      { label: "Nursing Care", path: "/boarding-life/nursing-care" },
+      { label: "Chaplaincy", path: "/boarding-life/chaplaincy" },
+    ] 
+  },
+  { 
+    label: "Join Us", 
+    path: "/join-us", 
+    hasDropdown: true, 
+    options: [
+      { label: "Join Grade 10", path: "/join-us/grade-10" },
+      { label: "Join Form 2", path: "/join-us/form-2" },
+      { label: "Join Form 3", path: "/join-us/form-3" },
+      { label: "Enquire", path: "/join-us/enquire" },
+    ] 
+  },
+  { 
+    label: "Fees", 
+    path: "/fees", 
+    hasDropdown: true, 
+    options: [
+      { label: "Grade 10", path: "/fees/grade-10" },
+      { label: "Form 2", path: "/fees/form-2" },
+      { label: "Form 3", path: "/fees/form-3" },
+      { label: "Form 4", path: "/fees/form-4" },
+      { label: "Terms & Conditions", path: "/fees/terms-conditions" },
+    ] 
+  },
+  { 
+    label: "Get Access", 
+    path: "/get-access", 
+    hasDropdown: true, 
+    options: [
+      { label: "Calendar of Events", path: "/get-access/calendar" },
+      { label: "Student Access", path: "/get-access/student-access" },
+      { label: "Staff Access", path: "/get-access/staff-access" },
+    ] 
+  },
 ];
+
+
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -34,6 +113,8 @@ export default function Navbar() {
   }, []);
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  
 
   return (
     <nav className="bg-[#bfd5ee] text-gray-800 shadow-lg">
@@ -71,33 +152,41 @@ export default function Navbar() {
               // onMouseLeave={() => setActiveDropdown(null)}
               ref={dropdownRef}
             >
-              <div className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200">
-                <div className="flex items-center space-x-1">
-                  <span className="text-sm font-bold whitespace-nowrap">{item.label}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown 
-                      size={14} 
-                      className={`transition-transform duration-200 ${
-                        activeDropdown === index ? 'rotate-180' : ''
-                      }`} 
-                    />
-                  )}
+              {item.hasDropdown ? (
+                <div className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200">
+                  <div className="flex items-center space-x-1">
+                    <span className="text-md font-bold whitespace-nowrap">{item.label}</span>
+                    {item.hasDropdown && (
+                      <ChevronDown 
+                        size={14} 
+                        className={`transition-transform duration-200 ${
+                          activeDropdown === index ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <Link to={item.path} className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200">
+                  <div className="flex items-center space-x-1">
+                    <span className="text-sm font-bold whitespace-nowrap">{item.label}</span>
+                  </div>
+                </Link>
+              )}
 
               {/* Dropdown */}
               {item.hasDropdown && activeDropdown === index && (
                 <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 mr-10 rounded-sm z-50">
                   <div className="p-2">
-                    <p className="text-sm text-gray-700 font-semibold">{item.label}</p>
+                    {/* <p className="text-sm text-gray-700 font-semibold">{item.label}</p> */}
                     <div className="mt-2 space-y-1">
                       {item.options?.map((option, idx) => (
                         <Link
                           key={idx}
-                          to={`/path-for/${option.toLowerCase().replace(/\s+/g, '-')}`} // Example path
+                          to={option.path} // Example path
                           className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
                         >
-                          {option}
+                         {option.label}
                         </Link>
                       ))}
                     </div>
@@ -134,11 +223,11 @@ export default function Navbar() {
                       {item.options?.map((option, idx) => (
                         <Link
                           key={idx}
-                          to={`/path-for/${option.toLowerCase().replace(/\s+/g, '-')}`}
+                          to={option.path}
                           className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 py-1 rounded"
                           onClick={() => setIsMobileMenuOpen(false)}
                         >
-                          {option}
+                          {option.label}
                         </Link>
                       ))}
                     </div>
@@ -147,11 +236,10 @@ export default function Navbar() {
                   {/* Non-dropdown direct links */}
                   {!item.hasDropdown && (
                     <Link
-                      to={`/path-for/${item.label.toLowerCase().replace(/\s+/g, '-')}`}
-                      className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 rounded"
+                      to={item.path!}
+                      className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      {/* {item.label} */}
                     </Link>
                   )}
                 </div>

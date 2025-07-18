@@ -24,7 +24,7 @@ export default function LandingPage() {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
             Be Inspired
           </h2>
-          <button className="text-2xl md:text-7xl px-6 py-4 hover:bg-[#cfa53a] bg-transparent text-white rounded-full border border-white shadow-lg hover:bg-[#b08a2f] transition">
+          <button className="text-2xl md:text-5xl px-6 py-4 hover:bg-[#cfa53a] bg-transparent text-white rounded-full border border-white shadow-lg hover:bg-[#b08a2f] transition">
            GRADE 10 ADMISSIONS IN AUGUST 2025
           </button>
         </div>
