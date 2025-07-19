@@ -7,7 +7,7 @@ const navItems = [
   { label: "Be Inspired", path: "/be-inspired", hasDropdown: false },
   { 
     label: "Inspire", 
-    path: "/inspired", 
+    path: "/inspire", 
     hasDropdown: true, 
     options: [
       { label: "Inspired History", path: "/inspired/history" },
@@ -37,7 +37,7 @@ const navItems = [
       { label: "Swimming", path: "/student-life/swimming" },
       { label: "BasketBall", path: "/student-life/basketball" },
       { label: "Golf", path: "/student-life/golf" },
-      { label: "Peformance Arts", path: "/student-life/performance-arts" },
+      { label: "Performance Arts", path: "/student-life/performance-arts" },
       { label: "Art Club", path: "/student-life/art-club" },
       { label: "Science Club", path: "/student-life/science-club" },
       { label: "Debate Club", path: "/student-life/debate-club" },
@@ -92,17 +92,17 @@ const navItems = [
   },
 ];
 
-
-
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownClicked, setIsDropdownClicked] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
+        setIsDropdownClicked(false);
       }
     };
 
@@ -112,9 +112,29 @@ export default function Navbar() {
     };
   }, []);
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const handleDropdownToggle = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setActiveDropdown(activeDropdown === index ? null : index);
+    setIsDropdownClicked(true);
+  };
 
-  
+  const handleMouseEnter = (index: number) => {
+    if (!isDropdownClicked) {
+      setActiveDropdown(index);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isDropdownClicked) {
+      setActiveDropdown(null);
+    }
+  };
+
+  const handleDropdownItemClick = () => {
+    setActiveDropdown(null);
+    setIsDropdownClicked(false);
+  };
 
   return (
     <nav className="bg-[#bfd5ee] text-gray-800 shadow-lg">
@@ -124,69 +144,77 @@ export default function Navbar() {
           <img src="/pgslogo.webp" alt="logo" className="object-contain h-10 w-10"/>
           Pioneer Girls School
         </div>
+        
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="xl:hidden text-gray-700 focus:outline-none"
         >
           {isMobileMenuOpen ? (
-            // X icon
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            // Hamburger icon
             <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
         </button>
 
-        {/* Nav links container */}
-        <div className="hidden xl:flex items-center h-full">
+        {/* Desktop Nav links */}
+        <div className="hidden xl:flex items-center h-full" ref={dropdownRef}>
           {navItems.map((item, index) => (
             <div
               key={index}
               className="relative group h-4 flex items-center border-l border-gray-400 first:border-l-0 last:border-r"
-              onClick={() => setActiveDropdown(activeDropdown === index ? null : index)}
-              onMouseEnter={() => setActiveDropdown(index)}
-              // onMouseLeave={() => setActiveDropdown(null)}
-              ref={dropdownRef}
+              onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
             >
               {item.hasDropdown ? (
-                <div className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200">
-                  <div className="flex items-center space-x-1">
-                    <span className="text-md font-bold whitespace-nowrap">{item.label}</span>
-                    {item.hasDropdown && (
-                      <ChevronDown 
-                        size={14} 
-                        className={`transition-transform duration-200 ${
-                          activeDropdown === index ? 'rotate-180' : ''
-                        }`} 
-                      />
-                    )}
-                  </div>
+                <div className="flex items-center px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full transition-colors duration-200">
+                  <Link 
+                    to={item.path} 
+                    className="text-md font-bold whitespace-nowrap"
+                    onClick={() => {
+                      setActiveDropdown(null);
+                      setIsDropdownClicked(false);
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                  <button
+                    onClick={(e) => handleDropdownToggle(e, index)}
+                    className="ml-1 flex items-center focus:outline-none"
+                  >
+                    <ChevronDown 
+                      size={14} 
+                      className={`transition-transform duration-200 ${
+                        activeDropdown === index ? 'rotate-180' : ''
+                      }`} 
+                    />
+                  </button>
                 </div>
               ) : (
-                <Link to={item.path} className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200">
-                  <div className="flex items-center space-x-1">
-                    <span className="text-sm font-bold whitespace-nowrap">{item.label}</span>
-                  </div>
+                <Link 
+                  to={item.path} 
+                  className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200"
+                >
+                  <span className="text-md font-bold whitespace-nowrap">{item.label}</span>
                 </Link>
               )}
 
               {/* Dropdown */}
               {item.hasDropdown && activeDropdown === index && (
-                <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 mr-10 rounded-sm z-50">
+                <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 rounded-sm z-50">
                   <div className="p-2">
-                    {/* <p className="text-sm text-gray-700 font-semibold">{item.label}</p> */}
                     <div className="mt-2 space-y-1">
                       {item.options?.map((option, idx) => (
                         <Link
                           key={idx}
-                          to={option.path} // Example path
+                          to={option.path}
                           className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
+                          onClick={handleDropdownItemClick}
                         >
-                         {option.label}
+                          {option.label}
                         </Link>
                       ))}
                     </div>
@@ -196,30 +224,44 @@ export default function Navbar() {
             </div>
           ))}
         </div>
-        {/* Mobile Menu - shown only on small screens */}
+        
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="xl:hidden absolute top-full left-0 w-full bg-[#bfd5ee] p-6 z-50">
             <div className="flex flex-col items-start space-y-2">
               {navItems.map((item, index) => (
                 <div key={index} className="w-full">
-                  <div className="flex items-center w-full">
-                    <span className="font-semibold text-gray-800">{item.label}</span>
-                    {item.hasDropdown && (
+                  {!item.hasDropdown ? (
+                    <Link
+                      to={item.path}
+                      className="flex items-center w-full font-semibold text-gray-800 hover:bg-[#cfa53aff] px-2 py-1 rounded"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <div className="flex items-center w-full justify-between">
+                      <Link
+                        to={item.path}
+                        className="font-semibold text-gray-800 hover:bg-[#cfa53aff] px-2 py-1 rounded flex-1"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
                       <button
-                        className="ml-2 flex items-center"
+                        className="ml-2 flex items-center p-1"
                         onClick={() => setActiveDropdown(activeDropdown === index ? null : index)}
-                        aria-label={`Toggle ${item.label} dropdown`}
-                        style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+                        style={{ background: "none", border: "none", cursor: "pointer" }}
                       >
                         <ChevronDown
                           className={`w-4 h-4 transition-transform ${activeDropdown === index ? "rotate-180" : ""}`}
                         />
                       </button>
-                    )}
-                  </div>
-                  {/* Dropdown Items */}
+                    </div>
+                  )}
+                  
                   {item.hasDropdown && activeDropdown === index && (
-                    <div className=" ml-6 space-y-1">
+                    <div className="ml-6 space-y-1">
                       {item.options?.map((option, idx) => (
                         <Link
                           key={idx}
@@ -231,16 +273,6 @@ export default function Navbar() {
                         </Link>
                       ))}
                     </div>
-                  )}
-
-                  {/* Non-dropdown direct links */}
-                  {!item.hasDropdown && (
-                    <Link
-                      to={item.path!}
-                      className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                    </Link>
                   )}
                 </div>
               ))}
