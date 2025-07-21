@@ -10,8 +10,8 @@ const navItems = [
     path: "/inspire", 
     hasDropdown: true, 
     options: [
-      { label: "Inspired History", path: "/inspired/history" },
-      { label: "Inspired Leadership", path: "/inspired/leadership" },
+      { label: "Inspired History", path: "/inspire/history" },
+      { label: "Inspired Leadership", path: "/inspire/leadership" },
     ] 
   },
   { 

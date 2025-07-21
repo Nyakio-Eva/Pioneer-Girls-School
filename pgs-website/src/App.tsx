@@ -74,8 +74,8 @@ function App() {
           <Route path="/get-access" element={<GetAccess />} />
 
           {/* Inspire Sub-routes */}
-          <Route path="/inspired/history" element={<History />} />
-          <Route path="/inspired/leadership" element={<Leadership />} />
+          <Route path="/inspire/history" element={<History />} />
+          <Route path="/inspire/leadership" element={<Leadership />} />
 
           {/* Pathways Sub-routes */}
           <Route path="/pathways/tailormade" element={<TailoredPath />} />
