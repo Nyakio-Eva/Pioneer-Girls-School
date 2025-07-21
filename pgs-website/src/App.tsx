@@ -17,8 +17,8 @@ import History from './components/History';
 import Leadership from './components/Leadership';
 
 import TailoredPath from './components/TailoredPathways';
-import Stem from './components/Stem';
-import SocialSciences from './components/SocialSciences';
+import Stem from './pages/Stem';
+import SocialSciences from './pages/SocialSciences';
 import ArtsAndSports from './components/ArtsAndSports';
 import Aviation from './components/Aviation';
 import Marine from './components/Marine';
@@ -41,16 +41,18 @@ import StJohnAmbulance from './components/StJohnAmbulance';
 import NursingCare from './components/NursingCare'; // Added missing component
 import Chaplaincy from './components/Chaplaincy';
 
+import JoinGrade9 from './components/JoinGrade9';
 import JoinGrade10 from './components/JoinGrade10';
 import JoinForm2 from './components/JoinForm2';
 import JoinForm3 from './components/JoinForm3';
-// import Enquire from './components/Enquire'; // Added missing component
-
+import JoinForm4 from './components/JoinForm4';
+import Enquire from './components/Enquire';
+import Grade9Fees from './components/Grade9Fees';
 import Grade10Fees from './components/Grade10Fees';
 import Form2Fees from './components/Form2Fees';
 import Form3Fees from './components/Form3Fees';
-// import Form4Fees from './components/Form4Fees'; // Added missing component
-// import TermsConditions from './components/TermsConditions'; // Added missing component
+import Form4Fees from './components/Form4Fees';
+import TermsAndConditions from './components/TermsAndConditions'; 
 
 import Calendar from './components/Calendar'; // Added missing component
 // import StudentAccess from './components/StudentAccess'; // Added missing component
@@ -69,6 +71,12 @@ function App() {
           <Route path="/pathways" element={<Pathways />} />
           <Route path="/student-life" element={<StudentLife />} />
           <Route path="/boarding-life" element={<BoardingLife />} />
+          <Route path="/stem" element={<Stem />} />
+          <Route path="/social-sciences" element={<SocialSciences />} />
+          <Route path="/arts-sports" element={<ArtsAndSports />} />
+          <Route path="/aviation" element={<Aviation />} />
+          <Route path="/marine" element={<Marine />} />
+          <Route path="/AI" element={<AI />} />
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/fees" element={<Fees />} />
           <Route path="/get-access" element={<GetAccess />} />
@@ -79,13 +87,7 @@ function App() {
 
           {/* Pathways Sub-routes */}
           <Route path="/pathways/tailormade" element={<TailoredPath />} />
-          <Route path="/pathways/stem" element={<Stem />} />
-          <Route path="/pathways/social-sciences" element={<SocialSciences />} />
-          <Route path="/pathways/arts-sports" element={<ArtsAndSports />} />
-          <Route path="/pathways/aviation" element={<Aviation />} />
-          <Route path="/pathways/marine" element={<Marine />} />
-          <Route path="/pathways/AI" element={<AI />} />
-
+          
           {/* Student Life Sub-routes */}
           <Route path="/student-life/soccer" element={<Soccer />} />
           <Route path="/student-life/swimming" element={<Swimming />} />
@@ -106,17 +108,20 @@ function App() {
           <Route path="/boarding-life/chaplaincy" element={<Chaplaincy />} />
 
           {/* Join Us Sub-routes */}
+          <Route path="/join-us/grade-9" element={<JoinGrade9 />} />
           <Route path="/join-us/grade-10" element={<JoinGrade10 />} />
           <Route path="/join-us/form-2" element={<JoinForm2 />} />
           <Route path="/join-us/form-3" element={<JoinForm3 />} />
-          {/* <Route path="/join-us/enquire" element={<Enquire />} /> */}
+          <Route path="/join-us/form-4" element={<JoinForm4 />} />
+          <Route path="/join-us/enquire" element={<Enquire />} />
 
           {/* Fees Sub-routes */}
+          <Route path="/fees/grade-9" element={<Grade9Fees />} />
           <Route path="/fees/grade-10" element={<Grade10Fees />} />
           <Route path="/fees/form-2" element={<Form2Fees />} />
           <Route path="/fees/form-3" element={<Form3Fees />} />
-          {/* <Route path="/fees/form-4" element={<Form4Fees />} /> */}
-          {/* <Route path="/fees/terms-conditions" element={<TermsConditions />} /> */}
+          <Route path="/fees/form-4" element={<Form4Fees />} />
+          <Route path="/fees/terms-conditions" element={<TermsAndConditions />} />
 
           {/* Get Access Sub-routes */}
           <Route path="/get-access/calendar" element={<Calendar />} />

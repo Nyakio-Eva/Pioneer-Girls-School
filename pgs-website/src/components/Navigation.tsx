@@ -19,13 +19,13 @@ const navItems = [
     path: "/pathways", 
     hasDropdown: true, 
     options: [
-      { label: "TailorMade Pathways", path: "/pathways/tailormade" },
-      { label: "Science Technology Engineering & Mathematics", path: "/pathways/stem" },
-      { label: "Social Sciences", path: "/pathways/social-sciences" },
-      { label: "Arts & Sport Science", path: "/pathways/arts-sports" },
-      { label: "Aviation", path: "/pathways/aviation" },
-      { label: "Marine", path: "/pathways/marine" },
-      { label: "AI studies", path: "/pathways/AI" },
+      // { label: "TailorMade Pathways", path: "/pathways/tailormade" },
+      { label: "Science Technology Engineering & Mathematics", path: "/stem" },
+      { label: "Social Sciences", path: "/social-sciences" },
+      { label: "Arts & Sport Science", path: "/arts-sports" },
+      { label: "Aviation", path: "/aviation" },
+      { label: "Marine", path: "/marine" },
+      { label: "AI studies", path: "/AI" },
     ] 
   },
   { 
@@ -37,10 +37,10 @@ const navItems = [
       { label: "Swimming", path: "/student-life/swimming" },
       { label: "BasketBall", path: "/student-life/basketball" },
       { label: "Golf", path: "/student-life/golf" },
-      { label: "Performance Arts", path: "/student-life/performance-arts" },
-      { label: "Art Club", path: "/student-life/art-club" },
-      { label: "Science Club", path: "/student-life/science-club" },
-      { label: "Debate Club", path: "/student-life/debate-club" },
+      // { label: "Performance Arts", path: "/student-life/performance-arts" },
+      // { label: "Art Club", path: "/student-life/art-club" },
+      // { label: "Science Club", path: "/student-life/science-club" },
+      // { label: "Debate Club", path: "/student-life/debate-club" },
     ] 
   },
   { 
@@ -50,9 +50,9 @@ const navItems = [
     options: [
       { label: "Dorm Life", path: "/boarding-life/dorm-life" },
       { label: "Dance Life", path: "/boarding-life/dance-life" },
-      { label: "Health & Wellness", path: "/boarding-life/health-wellness" },
-      { label: "Security", path: "/boarding-life/security" },
-      { label: "St. John Ambulance", path: "/boarding-life/st-john-ambulance" },
+      // { label: "Health & Wellness", path: "/boarding-life/health-wellness" },
+      // { label: "Security", path: "/boarding-life/security" },
+      // { label: "St. John Ambulance", path: "/boarding-life/st-john-ambulance" },
       { label: "Nursing Care", path: "/boarding-life/nursing-care" },
       { label: "Chaplaincy", path: "/boarding-life/chaplaincy" },
     ] 
@@ -62,10 +62,12 @@ const navItems = [
     path: "/join-us", 
     hasDropdown: true, 
     options: [
+      { label: "Join Grade 9", path: "/join-us/grade-9" },
       { label: "Join Grade 10", path: "/join-us/grade-10" },
       { label: "Join Form 2", path: "/join-us/form-2" },
       { label: "Join Form 3", path: "/join-us/form-3" },
-      { label: "Enquire", path: "/join-us/enquire" },
+      { label: "Join Form 4", path: "/join-us/form-4" },
+      { label: "Enquire", path: "https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F", external: true },
     ] 
   },
   { 
@@ -73,6 +75,7 @@ const navItems = [
     path: "/fees", 
     hasDropdown: true, 
     options: [
+      { label: "Grade 9", path: "/fees/grade-9" },
       { label: "Grade 10", path: "/fees/grade-10" },
       { label: "Form 2", path: "/fees/form-2" },
       { label: "Form 3", path: "/fees/form-3" },
@@ -207,20 +210,34 @@ export default function Navbar() {
                 <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 rounded-sm z-50">
                   <div className="p-2">
                     <div className="mt-2 space-y-1">
-                      {item.options?.map((option, idx) => (
-                        <Link
-                          key={idx}
-                          to={option.path}
-                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
-                          onClick={handleDropdownItemClick}
-                        >
-                          {option.label}
-                        </Link>
-                      ))}
+                      {item.options?.map((option, idx) =>
+                        option.external ? (
+                          <a
+                            key={idx}
+                            href={option.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
+                            onClick={handleDropdownItemClick}
+                          >
+                            {option.label}
+                          </a>
+                        ) : (
+                          <Link
+                            key={idx}
+                            to={option.path}
+                            className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
+                            onClick={handleDropdownItemClick}
+                          >
+                            {option.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
               )}
+
             </div>
           ))}
         </div>
@@ -262,18 +279,32 @@ export default function Navbar() {
                   
                   {item.hasDropdown && activeDropdown === index && (
                     <div className="ml-6 space-y-1">
-                      {item.options?.map((option, idx) => (
-                        <Link
-                          key={idx}
-                          to={option.path}
-                          className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 py-1 rounded"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {option.label}
-                        </Link>
-                      ))}
+                      {item.options?.map((option, idx) =>
+                        option.external ? (
+                          <a
+                            key={idx}
+                            href={option.path}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 py-1 rounded"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {option.label}
+                          </a>
+                        ) : (
+                          <Link
+                            key={idx}
+                            to={option.path}
+                            className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 py-1 rounded"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {option.label}
+                          </Link>
+                        )
+                      )}
                     </div>
                   )}
+
                 </div>
               ))}
             </div>

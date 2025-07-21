@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import { BarChart3, TrendingUp, Award, Calendar, ExternalLink, Loader2 } from 'lucide-react';
 
 interface DashboardData {
