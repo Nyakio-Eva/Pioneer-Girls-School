@@ -20,12 +20,12 @@ const navItems = [
     hasDropdown: true, 
     options: [
       // { label: "TailorMade Pathways", path: "/pathways/tailormade" },
-      { label: "Science Technology Engineering & Mathematics", path: "/stem" },
-      { label: "Social Sciences", path: "/social-sciences" },
-      { label: "Arts & Sport Science", path: "/arts-sports" },
-      { label: "Aviation", path: "/aviation" },
-      { label: "Marine", path: "/marine" },
-      { label: "AI studies", path: "/AI" },
+      { label: "School of Science Technology Engineering & Mathematics", path: "/stem" },
+      { label: "School of Social Sciences", path: "/social-sciences" },
+      { label: "School of Arts & Sport Science", path: "/arts-sports" },
+      { label: "Aviation Program", path: "/aviation" },
+      { label: "Marine program", path: "/marine" },
+      { label: "AI Program", path: "/AI" },
     ] 
   },
   { 

@@ -1,5 +1,6 @@
-import { Facebook, Instagram, Twitter, Youtube, Phone, } from 'lucide-react';
+import { FaTiktok, FaLinkedin, FaTwitter, FaInstagram, FaFacebook, FaYoutube, FaPhone } from 'react-icons/fa';
 import { ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return(
@@ -10,15 +11,15 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Quick Links</h4>
                         <ul className="space-y-2">
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"> <ChevronRight className="w-4 h-4 mr-2 text-white" /> Home</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Who We Are</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Pathways</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Student Life</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Talents</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Join Us</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Friendly Fees</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Our Location</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Get Access</a></li>
+                            <li><Link to="/" className="text-white hover:text-yellow-400 transition-colors flex items-center"> <ChevronRight className="w-4 h-4 mr-2 text-white" /> Home</Link></li>
+                            <li><Link to="/inspire" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Who We Are</Link></li>
+                            <li><Link to="/pathways" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Pathways</Link></li>
+                            <li><Link to="/student-life" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Student Life</Link></li>
+                            <li><Link to="/student-life" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Talents</Link></li>
+                            <li><Link to="/join-us" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Join Us</Link></li>
+                            <li><Link to="/fees" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Friendly Fees</Link></li>
+                            <li><Link to="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Our Location</Link></li>
+                            <li><Link to="/get-access" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Get Access</Link></li>
                         </ul>
                     </div>
 
@@ -49,13 +50,20 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Our Schools</h4>
                         <ul className="space-y-2">
-                           <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Girls School</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Group of schools</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />St Paul Thomas Academy</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Girls Junior Academy</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Junior Academy</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer School</a></li>
-                            <li><a href="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer International University</a></li>
+                           <li><a href="https://www.pioneergirlsschool.co.ke/" target="_blank"
+                            rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Girls School</a></li>
+                            <li><a href="https://www.pioneergroupofschools.co.ke/" target="_blank"
+                            rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Group of schools</a></li>
+                            <li><a href="https://www.stpaulthomasacademy.co.ke/"  target="_blank"
+                            rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />St Paul Thomas Academy</a></li>
+                            <li><a href="https://www.pioneergirlsjunioracademy.co.ke/" target="_blank"
+                            rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Girls Junior Academy</a></li>
+                            <li><a href="https://www.pioneerjunioracademy.co.ke/" target="_blank"
+                            rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Junior Academy</a></li>
+                            <li><a href="https://www.pioneerschools.ac.ke/" target="_blank"
+                            rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer School</a></li>
+                            <li><a href="https://piu.ac.ke/"  target="_blank"
+                             rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer International University</a></li>
                         </ul>
                         
                     </div>
@@ -64,17 +72,29 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Our Socials</h4>
                         <div className="flex space-x-2">
-                            <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <Facebook size={16} />
+                            <a href="https://www.tiktok.com/@pioneergirlsschool" target="_blank"
+                                 rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <FaTiktok size={16} />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <Instagram size={16} />
+                            <a href="https://www.facebook.com/people/Pioneer-Girls-School/100067849162594/" target="_blank"
+                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <FaFacebook size={16} />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <Twitter size={16} />
+                            <a href="https://www.instagram.com/explore/locations/1661580044124468/pioneer-girls-high-school/" target="_blank"
+                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <FaInstagram size={16} />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <Youtube size={16} />
+                            <a href="https://x.com/pioneergirlske?lang=en" target="_blank"
+                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <FaTwitter size={16} />
+                            </a>
+                            <a href="https://ke.linkedin.com/company/pioneer-girls-school" target="_blank"
+                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <FaLinkedin size={16} />
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=GLXcmVXluQs" target="_blank"
+                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
+                                <FaYoutube size={16} />
                             </a>
                         </div>
                         <div className="text-xs text-gray-300 mt-4">
@@ -104,7 +124,7 @@ export default function Footer() {
                 {/* Floating Chat Button */}
                 <div className="fixed bottom-6 left-6">
                     <button className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors shadow-lg">
-                        <Phone size={20} className="text-white" />
+                        <FaPhone size={20} className="text-white" />
                     </button>
                 </div>
             </div>
