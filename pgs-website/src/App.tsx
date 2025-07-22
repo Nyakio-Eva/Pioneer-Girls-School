@@ -21,7 +21,7 @@ import Stem from './pages/Stem';
 import SocialSciences from './pages/SocialSciences';
 import ArtsAndSports from './pages/ArtsAndSports';
 import Aviation from './pages/Aviation';
-import Marine from './components/Marine';
+import Marine from './pages/Marine';
 import AI from './components/AI';
 
 import Soccer from './components/Soccer';
