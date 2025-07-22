@@ -173,28 +173,22 @@ export default function Navbar() {
               onMouseLeave={handleMouseLeave}
             >
               {item.hasDropdown ? (
-                <div className="flex items-center px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full transition-colors duration-200">
-                  <Link 
-                    to={item.path} 
+                <div
+                  className="flex items-center px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full transition-colors duration-200"
+                  onClick={(e) => handleDropdownToggle(e, index)}
+                >
+                  <Link
+                    to={item.path}
                     className="text-md font-bold whitespace-nowrap"
-                    onClick={() => {
-                      setActiveDropdown(null);
-                      setIsDropdownClicked(false);
-                    }}
                   >
                     {item.label}
                   </Link>
-                  <button
-                    onClick={(e) => handleDropdownToggle(e, index)}
-                    className="ml-1 flex items-center focus:outline-none"
-                  >
-                    <ChevronDown 
-                      size={14} 
-                      className={`transition-transform duration-200 ${
+                  <ChevronDown
+                    size={14}
+                    className={`ml-1 transition-transform duration-200 ${
                         activeDropdown === index ? 'rotate-180' : ''
-                      }`} 
-                    />
-                  </button>
+                      }`}
+                  />
                 </div>
               ) : (
                 <Link 
