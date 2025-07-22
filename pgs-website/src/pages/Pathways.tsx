@@ -11,7 +11,7 @@ const cards = [
   {
     title: 'Kiswahili / Kenya Sign Language',
     description: 'Our milestones framework guides you through every stage of leadership development.',
-    imageSrc: '/kiswahili.jpg',
+    imageSrc: '/kiswahili.webp',
     link: 'https://kicd.ac.ke/wp-content/uploads/2024/07/Kiswahili-Lugha-Gredi-10-Juni-2024.pdf',
   },
   {
@@ -33,7 +33,9 @@ const TailorMadeLeadershipPathways: React.FC = () => (
    
 
     {/* Hero Section */}
-    <section className="bg-[#277291] py-24">
+    <section className="bg-[#277291] py-24"style={{
+          backgroundImage: `linear-gradient(rgba(1, 5, 14, 0.79), rgba(22, 46, 97, 0.4)), url('/tailormade.webp')`
+        }}>
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-6xl text-white font-bold mb-4">
           Tailor Made Leadership Pathways
@@ -46,10 +48,10 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     </section>
 
     {/* Intro & Outcomes */}
-    <section className="py-16">
-      <div className="container mx-auto px-4 grid gap-12 md:grid-cols-2">
+    <section className="py-16 bg-slate-300">
+      <div className="container mx-auto px-4 grid gap-12 md:grid-cols-1">
         <div>
-          <img src='' alt='program details'/>
+          
           <h2 className="text-2xl md:text-3xl font-semibold text-[#093056] mb-4">
             Program Details
           </h2>
@@ -79,14 +81,14 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     </section>
 
     {/* Cards Grid */}
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 text-center mb-12">
-        <h2 className="text-3xl py-16 md:text-4xl font-semibold text-[#093056]">
+    <section className="py-16 bg-slate-100">
+      <div className="container mx-auto px-4 text-center mb-12 py-10">
+        <h2 className="text-3xl md:text-4xl font-semibold text-[#093056]">
         COMPULSORY SUBJECTS ​
         <br />
-<hr className="pt-16 h-2 bg-white"/> 
+        <hr className=" h-3 bg-blue-900"/> 
         </h2>
-        <p>At Senior School, ALL students will be required to take the following subjects.</p> 
+        <p className='pt-10'>At Senior School, ALL students will be required to take the following subjects.</p> 
       </div>
       <div className="container mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((c, i) => (

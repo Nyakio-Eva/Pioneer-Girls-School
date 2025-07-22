@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 
-export default function LandingPage() {
+export default function Inspire() {
   
  const navigate = useNavigate();
 
