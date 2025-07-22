@@ -7,13 +7,18 @@ const BoardingLife: React.FC = () => (
 
     {/* Hero */}
     <section
-      className="relative h-[50vh] bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/images/Student.jpg')" }}
+      className="relative h-[100vh] bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/boardinglife.webp')" }}
     >
-      <div className="absolute inset-0 bg-[#093056] opacity-60" />
-      <h1 className="relative z-10 text-4xl md:text-6xl text-white font-bold">
-        Boarding Life
-      </h1>
+      <div className="absolute inset-0 bg-black opacity-50" />
+      <div className='className="relative container mx-auto px-4 py-16 flex justify-end"'>
+        <div className="max-w-lg">
+          <h4 className="relative z-10 text-4xl md:text-6xl text-white font-semibold items-start">
+            At Pioneer Girls School, we provide a wholistic enviroment that allows our students to enjoy education and create lasting friendships.
+          </h4>
+        </div>
+      </div>
+      
     </section>
 
     {/* Sub‑page cards */}

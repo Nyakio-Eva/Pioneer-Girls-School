@@ -23,6 +23,7 @@ import ArtsAndSports from './pages/ArtsAndSports';
 import Aviation from './pages/Aviation';
 import Marine from './pages/Marine';
 import AI from './pages/AI';
+import Location from './pages/Location';
 
 import Soccer from './components/Soccer';
 import Swimming from './components/Swimming';
@@ -38,7 +39,7 @@ import DanceLife from './components/DanceLife';
 import HealthAndWellness from './components/HealthAndWellness';
 import Security from './components/Security';
 import StJohnAmbulance from './components/StJohnAmbulance';
-import NursingCare from './components/NursingCare'; // Added missing component
+import NursingCare from './components/NursingCare'; 
 import Chaplaincy from './components/Chaplaincy';
 
 import JoinGrade9 from './components/JoinGrade9';
@@ -54,9 +55,10 @@ import Form3Fees from './components/Form3Fees';
 import Form4Fees from './components/Form4Fees';
 import TermsAndConditions from './components/TermsAndConditions'; 
 
-import Calendar from './components/Calendar'; // Added missing component
-// import StudentAccess from './components/StudentAccess'; // Added missing component
-// import StaffAccess from './components/StaffAccess'; // Added missing component
+
+import StudentAccess from './pages/StudentAccess'; 
+import StaffAccess from './pages/StaffAccess'; 
+import CalendarOfEvents from './pages/Calendar';
 
 function App() {
   return (
@@ -79,6 +81,7 @@ function App() {
           <Route path="/AI" element={<AI />} />
           <Route path="/join-us" element={<JoinUs />} />
           <Route path="/fees" element={<Fees />} />
+          <Route path="/our-location" element={<Location />} />
           <Route path="/get-access" element={<GetAccess />} />
 
           {/* Inspire Sub-routes */}
@@ -123,10 +126,10 @@ function App() {
           <Route path="/fees/form-4" element={<Form4Fees />} />
           <Route path="/fees/terms-conditions" element={<TermsAndConditions />} />
 
-          {/* Get Access Sub-routes */}
-          <Route path="/get-access/calendar" element={<Calendar />} />
-          {/* <Route path="/get-access/student-access" element={<StudentAccess />} /> */}
-          {/* <Route path="/get-access/staff-access" element={<StaffAccess />} /> */}
+          {/* Get Access Sub-items */}
+          <Route path="/calendar" element={<CalendarOfEvents />} />
+          <Route path="/student-access" element={<StudentAccess />} /> 
+          <Route path="/staff-access" element={<StaffAccess />} />
 
           {/* 404 Not Found */}
           <Route path="*" element={<NotFound />} />

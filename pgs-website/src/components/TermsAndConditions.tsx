@@ -4,9 +4,10 @@ export default function TermsAndConditions() {
   return (
     <section className="bg-[#e6eef8ff] text-gray-800 px-6 py-16 space-y-12">
       <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-blue-900">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-center text-blue-900 flex items-start">
           SCHOOL FEES TERMS & CONDITIONS
         </h1>
+         <div className="mt-4 h-1 w-auto  bg-blue-200 opacity-80 mx-auto"></div>
       </div>
 
       <div className="max-w-5xl mx-auto text-lg leading-relaxed space-y-6">

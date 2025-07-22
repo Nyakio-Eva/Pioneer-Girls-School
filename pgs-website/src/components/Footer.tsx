@@ -10,7 +10,7 @@ export default function Footer() {
                     {/* Quick Links */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Quick Links</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-lg">
                             <li><Link to="/" className="text-white hover:text-yellow-400 transition-colors flex items-center"> <ChevronRight className="w-4 h-4 mr-2 text-white" /> Home</Link></li>
                             <li><Link to="/inspire" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Who We Are</Link></li>
                             <li><Link to="/pathways" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Pathways</Link></li>
@@ -26,7 +26,7 @@ export default function Footer() {
                     {/* Contact Us */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Contact Us</h4>
-                        <div className="space-y-3">
+                        <div className="space-y-3 text-lg">
                             <div>
                                 <div className="font-semibold text-yellow-400">Telephone:</div>
                                 <div className="text-white">+254 205038234</div>
@@ -49,7 +49,7 @@ export default function Footer() {
                     {/* Our Schools */}
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Our Schools</h4>
-                        <ul className="space-y-2">
+                        <ul className="space-y-2 text-lg">
                            <li><a href="https://www.pioneergirlsschool.co.ke/" target="_blank"
                             rel="noopener noreferrer" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Pioneer Girls School</a></li>
                             <li><a href="https://www.pioneergroupofschools.co.ke/" target="_blank"
@@ -73,31 +73,31 @@ export default function Footer() {
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Our Socials</h4>
                         <div className="flex space-x-2">
                             <a href="https://www.tiktok.com/@pioneergirlsschool" target="_blank"
-                                 rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <FaTiktok size={16} />
+                                 rel="noopener noreferrer" className="w-10 h-10 text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+                                <FaTiktok size={24} />
                             </a>
                             <a href="https://www.facebook.com/people/Pioneer-Girls-School/100067849162594/" target="_blank"
-                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <FaFacebook size={16} />
+                                rel="noopener noreferrer" className="w-10 h-10 text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+                                <FaFacebook size={24} />
                             </a>
                             <a href="https://www.instagram.com/explore/locations/1661580044124468/pioneer-girls-high-school/" target="_blank"
-                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <FaInstagram size={16} />
+                                rel="noopener noreferrer" className="w-10 h-10 text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+                                <FaInstagram size={24} />
                             </a>
                             <a href="https://x.com/pioneergirlske?lang=en" target="_blank"
-                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <FaTwitter size={16} />
+                                rel="noopener noreferrer" className="w-10 h-10 text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+                                <FaTwitter size={24} />
                             </a>
                             <a href="https://ke.linkedin.com/company/pioneer-girls-school" target="_blank"
-                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <FaLinkedin size={16} />
+                                rel="noopener noreferrer" className="w-10 h-10 text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+                                <FaLinkedin size={24} />
                             </a>
                             <a href="https://www.youtube.com/watch?v=GLXcmVXluQs" target="_blank"
-                                rel="noopener noreferrer" className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-yellow-400 transition-colors">
-                                <FaYoutube size={16} />
+                                rel="noopener noreferrer" className="w-10 h-10 text-white rounded-full flex items-center justify-center hover:bg-yellow-600 transition-colors">
+                                <FaYoutube size={24} />
                             </a>
                         </div>
-                        <div className="text-xs text-gray-300 mt-4">
+                        <div className="text-sm text-gray-300 mt-4">
                             <div>Regulated by the Ministry of Education Kenya (21P3000036)</div>
                             <div>Licensed by Murang'a County</div>
                         </div>
@@ -124,7 +124,7 @@ export default function Footer() {
                 {/* Floating Chat Button */}
                 <div className="fixed bottom-6 left-6">
                     <button className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors shadow-lg">
-                        <FaPhone size={20} className="text-white" />
+                        <FaPhone size={24} className="text-white" />
                     </button>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const navItems = [
   { label: "Home", path: "/", hasDropdown: false },
-  { label: "Be Inspired", path: "/be-inspired", hasDropdown: false },
+  
   { 
     label: "Inspire", 
     path: "/inspire", 
@@ -14,6 +14,9 @@ const navItems = [
       { label: "Inspired Leadership", path: "/inspire/leadership" },
     ] 
   },
+
+  { label: "Be Inspired", path: "/be-inspired", hasDropdown: false },
+  
   { 
     label: "Pathways", 
     path: "/pathways", 
@@ -83,14 +86,17 @@ const navItems = [
       { label: "Terms & Conditions", path: "/fees/terms-conditions" },
     ] 
   },
+
+  { label: "Our Location", path: "/our-location", hasDropdown: false, },
+  
   { 
     label: "Get Access", 
     path: "/get-access", 
     hasDropdown: true, 
     options: [
-      { label: "Calendar of Events", path: "/get-access/calendar" },
-      { label: "Student Access", path: "/get-access/student-access" },
-      { label: "Staff Access", path: "/get-access/staff-access" },
+      { label: "Calendar of Events", path: "/calendar" },
+      { label: "Student Access", path: "/student-access" },
+      { label: "Staff Access", path: "/staff-access" },
     ] 
   },
 ];
@@ -141,9 +147,9 @@ export default function Navbar() {
 
   return (
     <nav className="bg-[#bfd5ee] text-gray-800 shadow-lg">
-      <div className="w-full mr-28 px-6 flex items-center justify-between h-full relative py-4">
+      <div className="w-full px-6 flex items-center justify-center h-full relative py-4">
         {/* Logo */}
-        <div className="font-bold text-base text-gray-900 ml-4 flex items-center">
+        <div className="font-bold text-base text-gray-900 flex items-center justify-center md:mr-48">
           <img src="/pgslogo.webp" alt="logo" className="object-contain h-10 w-10"/>
           Pioneer Girls School
         </div>
