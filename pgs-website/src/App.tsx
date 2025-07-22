@@ -22,7 +22,7 @@ import SocialSciences from './pages/SocialSciences';
 import ArtsAndSports from './pages/ArtsAndSports';
 import Aviation from './pages/Aviation';
 import Marine from './pages/Marine';
-import AI from './components/AI';
+import AI from './pages/AI';
 
 import Soccer from './components/Soccer';
 import Swimming from './components/Swimming';
