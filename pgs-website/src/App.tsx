@@ -20,7 +20,7 @@ import TailoredPath from './components/TailoredPathways';
 import Stem from './pages/Stem';
 import SocialSciences from './pages/SocialSciences';
 import ArtsAndSports from './pages/ArtsAndSports';
-import Aviation from './components/Aviation';
+import Aviation from './pages/Aviation';
 import Marine from './components/Marine';
 import AI from './components/AI';
 
