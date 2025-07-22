@@ -10,7 +10,7 @@ interface InfoCardProps {
 
 const InfoCard: React.FC<InfoCardProps> = ({ title, description, imageSrc, link }) => (
   <motion.div 
-    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+    className="bg-slate-200 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
     whileHover={{ scale: 1.02 }}
     transition={{ type: 'spring', stiffness: 300 }}
   >
@@ -61,7 +61,7 @@ const ArtsAndSportsSchool: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-200">
       {/* Hero Section */}
       <motion.div 
         className="relative h-screen bg-gradient-to-br from-[#2a2c2e] via-[#093056] to-[#1a1c1e] flex items-center justify-center"
@@ -89,18 +89,10 @@ const ArtsAndSportsSchool: React.FC = () => {
       </motion.div>
 
       {/* Message Section */}
-      <div className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-slate-300">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="aspect-square bg-gradient-to-br from-[#093056] to-[#f4a024] rounded-2xl"></div>
-            </motion.div>
-            
+          <div className="items-center">
+           
             <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -128,7 +120,7 @@ const ArtsAndSportsSchool: React.FC = () => {
 
       {/* Subjects Section */}
       <div className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-9xl mx-auto">
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -144,7 +136,7 @@ const ArtsAndSportsSchool: React.FC = () => {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
             {subjects.map((subject, index) => (
               <motion.div
                 key={subject.title}

@@ -208,7 +208,7 @@ const SocialSciencesPathway: React.FC = () => {
               Discover more career pathways and find the perfect fit for your interests and goals.
             </p>
             <a
-              href="/Inspired-Path/Art-Sports-Science-Pathway"
+              href="/arts-sports"
               className="inline-block bg-white text-[#093056] px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors duration-200 transform hover:scale-105 border border-slate-200"
             >
               ARTS & SPORTS SCIENCE →
