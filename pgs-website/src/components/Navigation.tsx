@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from "react";
-import { ChevronDown } from "lucide-react";
-import { Link } from 'react-router-dom';
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "Home", path: "/", hasDropdown: false },
-  
   { 
     label: "Inspire", 
     path: "/inspire", 
@@ -14,15 +13,12 @@ const navItems = [
       { label: "Inspired Leadership", path: "/inspire/leadership" },
     ] 
   },
-
   { label: "Be Inspired", path: "/be-inspired", hasDropdown: false },
-  
   { 
     label: "Pathways", 
     path: "/pathways", 
     hasDropdown: true, 
     options: [
-      // { label: "TailorMade Pathways", path: "/pathways/tailormade" },
       { label: "School of Science Technology Engineering & Mathematics", path: "/stem" },
       { label: "School of Social Sciences", path: "/social-sciences" },
       { label: "School of Arts & Sport Science", path: "/arts-sports" },
@@ -40,10 +36,6 @@ const navItems = [
       { label: "Swimming", path: "/student-life/swimming" },
       { label: "BasketBall", path: "/student-life/basketball" },
       { label: "Golf", path: "/student-life/golf" },
-      // { label: "Performance Arts", path: "/student-life/performance-arts" },
-      // { label: "Art Club", path: "/student-life/art-club" },
-      // { label: "Science Club", path: "/student-life/science-club" },
-      // { label: "Debate Club", path: "/student-life/debate-club" },
     ] 
   },
   { 
@@ -53,9 +45,6 @@ const navItems = [
     options: [
       { label: "Dorm Life", path: "/boarding-life/dorm-life" },
       { label: "Dance Life", path: "/boarding-life/dance-life" },
-      // { label: "Health & Wellness", path: "/boarding-life/health-wellness" },
-      // { label: "Security", path: "/boarding-life/security" },
-      // { label: "St. John Ambulance", path: "/boarding-life/st-john-ambulance" },
       { label: "Nursing Care", path: "/boarding-life/nursing-care" },
       { label: "Chaplaincy", path: "/boarding-life/chaplaincy" },
     ] 
@@ -86,9 +75,7 @@ const navItems = [
       { label: "Terms & Conditions", path: "/fees/terms-conditions" },
     ] 
   },
-
-  { label: "Our Location", path: "/our-location", hasDropdown: false, },
-  
+  { label: "Our Location", path: "/our-location", hasDropdown: false },
   { 
     label: "Get Access", 
     path: "/get-access", 
@@ -103,9 +90,12 @@ const navItems = [
 
 export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDropdownClicked, setIsDropdownClicked] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -113,13 +103,23 @@ export default function Navbar() {
         setActiveDropdown(null);
         setIsDropdownClicked(false);
       }
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+        const target = event.target as HTMLElement;
+        if (!target.closest('.mobile-menu-button')) {
+          setMobileMenuOpen(false);
+          setActiveMobileDropdown(null);
+        }
+      }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
 
   const handleDropdownToggle = (e: React.MouseEvent, index: number) => {
     e.preventDefault();
@@ -145,36 +145,63 @@ export default function Navbar() {
     setIsDropdownClicked(false);
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+    setActiveMobileDropdown(null);
+  };
+
+  const handleMobileDropdownToggle = (index: number) => {
+    setActiveMobileDropdown(activeMobileDropdown === index ? null : index);
+  };
+
+  const handleMobileItemClick = () => {
+    setMobileMenuOpen(false);
+    setActiveMobileDropdown(null);
+  };
+
+  const NavLink = ({ to, children, className, onClick }: { to: string; children: React.ReactNode; className?: string; onClick?: () => void }) => (
+    <a
+      href={to}
+      className={className}
+      onClick={(e) => {
+        e.preventDefault();
+        handleNavigation(to);
+        onClick?.();
+      }}
+    >
+      {children}
+    </a>
+  );
+
   return (
-    <nav className="bg-[#bfd5ee] text-gray-800 shadow-lg">
-      <div className="w-full px-6 flex items-center justify-center h-full relative py-4">
+    <nav className="bg-[#bfd5ee] text-gray-800 shadow-lg relative">
+      <div className="w-full px-6 flex items-center justify-between h-full relative py-4">
         {/* Logo */}
-        <div className="font-bold text-base text-gray-900 flex items-center justify-center md:mr-48">
-          <img src="/pgslogo.webp" alt="logo" className="object-contain h-10 w-10"/>
-          Pioneer Girls School
-        </div>
-        
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="xl:hidden text-gray-700 focus:outline-none"
+        <div 
+          className="font-bold text-base text-gray-900 flex items-center cursor-pointer z-20"  
+          onClick={() => handleNavigation('/')}
         >
-          {isMobileMenuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
+          <div className="h-10 w-10 flex items-center justify-center text-white font-bold text-sm">
+            <img src="/pgslogo.webp"/>
+          </div>
+          <span className="ml-2">Pioneer Girls School</span>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="xl:hidden mobile-menu-button z-20 p-2 rounded-md hover:bg-[#cfa53aff] transition-colors duration-200"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
-        {/* Desktop Nav links */}
+        {/* Desktop Nav */}
         <div className="hidden xl:flex items-center h-full" ref={dropdownRef}>
           {navItems.map((item, index) => (
             <div
               key={index}
-              className="relative group h-4 flex items-center border-l border-gray-400 first:border-l-0 last:border-r"
+              className={`relative group h-full flex items-center ${index < navItems.length - 1 ? 'border-r border-gray-400' : ''}`}
               onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
@@ -183,133 +210,140 @@ export default function Navbar() {
                   className="flex items-center px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full transition-colors duration-200"
                   onClick={(e) => handleDropdownToggle(e, index)}
                 >
-                  <Link
-                    to={item.path}
-                    className="text-md font-bold whitespace-nowrap"
-                  >
+                  <NavLink to={item.path} className="text-md font-bold whitespace-nowrap">
                     {item.label}
-                  </Link>
+                  </NavLink>
                   <ChevronDown
                     size={14}
-                    className={`ml-1 transition-transform duration-200 ${
-                        activeDropdown === index ? 'rotate-180' : ''
-                      }`}
+                    className={`ml-1 transition-transform duration-200 ${activeDropdown === index ? 'rotate-180' : ''}`}
                   />
                 </div>
               ) : (
-                <Link 
+                <NavLink 
                   to={item.path} 
                   className="px-4 py-4 rounded-sm hover:bg-[#cfa53aff] cursor-pointer h-full flex items-center transition-colors duration-200"
                 >
                   <span className="text-md font-bold whitespace-nowrap">{item.label}</span>
-                </Link>
+                </NavLink>
               )}
-
-              {/* Dropdown */}
               {item.hasDropdown && activeDropdown === index && (
-                <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 rounded-sm z-50">
+                <div className="absolute top-full left-0 mt-2 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 z-50 min-w-max">
                   <div className="p-2">
-                    <div className="mt-2 space-y-1">
-                      {item.options?.map((option, idx) =>
-                        option.external ? (
-                          <a
-                            key={idx}
-                            href={option.path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
-                            onClick={handleDropdownItemClick}
-                          >
-                            {option.label}
-                          </a>
-                        ) : (
-                          <Link
-                            key={idx}
-                            to={option.path}
-                            className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
-                            onClick={handleDropdownItemClick}
-                          >
-                            {option.label}
-                          </Link>
-                        )
-                      )}
-                    </div>
+                    {item.options?.map((option, idx) =>
+                      option.external ? (
+                        <a
+                          key={idx}
+                          href={option.path}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
+                          onClick={handleDropdownItemClick}
+                        >
+                          {option.label}
+                        </a>
+                      ) : (
+                        <NavLink
+                          key={idx}
+                          to={option.path}
+                          className="block py-1 text-sm text-gray-600 hover:bg-[#cfa53aff] rounded-md p-2 whitespace-nowrap"
+                          onClick={handleDropdownItemClick}
+                        >
+                          {option.label}
+                        </NavLink>
+                      )
+                    )}
                   </div>
                 </div>
               )}
-
             </div>
           ))}
         </div>
-        
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="xl:hidden absolute top-full left-0 w-full bg-[#bfd5ee] p-6 z-50">
-            <div className="flex flex-col items-start space-y-2">
-              {navItems.map((item, index) => (
-                <div key={index} className="w-full">
-                  {!item.hasDropdown ? (
-                    <Link
-                      to={item.path}
-                      className="flex items-center w-full font-semibold text-gray-800 hover:bg-[#cfa53aff] px-2 py-1 rounded"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <div className="flex items-center w-full justify-between">
-                      <Link
-                        to={item.path}
-                        className="font-semibold text-gray-800 hover:bg-[#cfa53aff] px-2 py-1 rounded flex-1"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                      <button
-                        className="ml-2 flex items-center p-1"
-                        onClick={() => setActiveDropdown(activeDropdown === index ? null : index)}
-                        style={{ background: "none", border: "none", cursor: "pointer" }}
-                      >
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform ${activeDropdown === index ? "rotate-180" : ""}`}
-                        />
-                      </button>
-                    </div>
-                  )}
-                  
-                  {item.hasDropdown && activeDropdown === index && (
-                    <div className="ml-6 space-y-1">
-                      {item.options?.map((option, idx) =>
-                        option.external ? (
-                          <a
-                            key={idx}
-                            href={option.path}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 py-1 rounded"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {option.label}
-                          </a>
-                        ) : (
-                          <Link
-                            key={idx}
-                            to={option.path}
-                            className="block text-sm text-gray-700 hover:bg-[#cfa53aff] px-2 py-1 rounded"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {option.label}
-                          </Link>
-                        )
-                      )}
-                    </div>
-                  )}
+      </div>
 
-                </div>
-              ))}
-            </div>
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className="xl:hidden fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setMobileMenuOpen(false)} />
+      )}
+
+      {/* Mobile Menu */}
+      <div
+        ref={mobileMenuRef}
+        className={`xl:hidden fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-[#bfd5ee] shadow-lg transform transition-transform duration-300 ease-in-out z-50 ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full">
+          {/* Mobile Menu Header */}
+          <div className="flex items-center justify-between p-6 border-b border-gray-300">
+            <span className="font-bold text-lg text-gray-900">Menu</span>
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-md hover:bg-[#cfa53aff] transition-colors duration-200"
+              aria-label="Close mobile menu"
+            >
+              <X size={20} />
+            </button>
           </div>
-        )}
+
+          {/* Mobile Menu Items */}
+          <div className="flex-1 overflow-y-auto py-4">
+            {navItems.map((item, index) => (
+              <div key={index} className="border-b border-gray-200 last:border-b-0">
+                {item.hasDropdown ? (
+                  <div>
+                    <button
+                      className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-[#cfa53aff] transition-colors duration-200"
+                      onClick={() => handleMobileDropdownToggle(index)}
+                    >
+                      <span className="font-medium text-gray-900">{item.label}</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform duration-200 ${
+                          activeMobileDropdown === index ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {activeMobileDropdown === index && (
+                      <div className="bg-gray-50 border-t border-gray-200">
+                        {item.options?.map((option, idx) =>
+                          option.external ? (
+                            <a
+                              key={idx}
+                              href={option.path}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block px-8 py-3 text-sm text-gray-600 hover:bg-[#cfa53aff] transition-colors duration-200"
+                              onClick={handleMobileItemClick}
+                            >
+                              {option.label}
+                            </a>
+                          ) : (
+                            <NavLink
+                              key={idx}
+                              to={option.path}
+                              className="block px-8 py-3 text-sm text-gray-600 hover:bg-[#cfa53aff] transition-colors duration-200"
+                              onClick={handleMobileItemClick}
+                            >
+                              {option.label}
+                            </NavLink>
+                          )
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <NavLink
+                    to={item.path}
+                    className="block px-6 py-4 font-medium text-gray-900 hover:bg-[#cfa53aff] transition-colors duration-200"
+                    onClick={handleMobileItemClick}
+                  >
+                    {item.label}
+                  </NavLink>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   );

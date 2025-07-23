@@ -55,7 +55,7 @@ const DashboardCard: React.FC<{ dashboard: DashboardData }> = ({ dashboard }) =>
   };
 
   return (
-    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden">
+    <div className="group bg-[#f2f2f2] rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 overflow-hidden">
       {/* Card Header */}
       <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-b border-gray-100">
         <div className="flex items-start justify-between">
@@ -131,7 +131,7 @@ export default function BeInspired() {
   const uniqueYears = ['all', ...Array.from(new Set(dashboardsData.map(d => d.year)))];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-200 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-slate-200">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800">
         <div className="absolute inset-0 bg-black/20"></div>
