@@ -23,8 +23,18 @@ jobs:
 
       - name: Build Vite app
         run: npm run build
+        
+      - name: Show runner user
+        run: whoami
+
 
       - name: Deploy to Nginx directory
         run: |
-          rm -rf /var/www/pgs-website/*
-          cp -r dist/* /var/www/pgs-website/
+          echo "Removing old dist..."
+          rm -rf /var/www/html/pgs_website/Pioneer-Girls-School/pgs-website/dist
+          echo "Copying new dist..."
+          cp -r dist /var/www/html/pgs_website/Pioneer-Girls-School/pgs-website/
+          echo "Deployed successfully."
+
+      - name: Restart Nginx (if needed)
+        run: sudo systemctl reload nginx
