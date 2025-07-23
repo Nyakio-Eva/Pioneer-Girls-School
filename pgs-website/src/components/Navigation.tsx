@@ -201,7 +201,7 @@ export default function Navbar() {
           {navItems.map((item, index) => (
             <div
               key={index}
-              className={`relative group h-full flex items-center ${index < navItems.length - 1 ? 'border-r border-gray-400' : ''}`}
+              className={`relative group h-6 flex items-center ${index < navItems.length - 1 ? 'border-r border-gray-400' : ''}`}
               onMouseEnter={() => item.hasDropdown && handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
             >
@@ -227,7 +227,7 @@ export default function Navbar() {
                 </NavLink>
               )}
               {item.hasDropdown && activeDropdown === index && (
-                <div className="absolute top-full left-0 mt-2 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 z-50 min-w-max">
+                <div className="absolute top-full left-0 mt-8 bg-[#bfd5ee] shadow-lg rounded-md border border-gray-200 z-50 min-w-max">
                   <div className="p-2">
                     {item.options?.map((option, idx) =>
                       option.external ? (
