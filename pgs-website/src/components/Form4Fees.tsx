@@ -2,7 +2,7 @@
 
 export default function Form4Fees() {
   return (
-    <section className="bg-white text-gray-800">
+    <section className="bg-slate-200 text-gray-800">
       {/* Header Section */}
       <div
         className="w-full bg-cover bg-center py-10 px-4 md:px-10"
@@ -69,7 +69,7 @@ export default function Form4Fees() {
       {/* Call to Action */}
       <div className="py-10 px-4 flex justify-center">
         <button
-          onClick={() => (window.location.href = '/Book-a-visit/')}
+          onClick={() => (window.location.href = 'https://enquireto.pioneergroupofschools.co.ke/')}
           className="bg-yellow-500 hover:bg-yellow-600 text-white text-lg font-bold py-3 px-6 rounded-xl shadow-md transition"
         >
           Book a Visit

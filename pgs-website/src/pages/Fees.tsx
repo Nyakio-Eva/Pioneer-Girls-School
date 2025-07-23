@@ -17,14 +17,16 @@ export default function FeesCards() {
         <h1 className="text-3xl md:text-5xl font-extrabold text-yellow-500 mb-4">
           Pioneer Girls School Fees
         </h1>
-        <p className="text-xl font-medium text-gray-600">
+        <div className="my-4 h-px w-auto  bg-white opacity-80 mx-auto"></div>
+
+        <p className="text-xl font-medium text-gray-600 mt-5">
           Secure your daughter's future with our budget-friendly fees that provide unparalleled opportunities.
         </p>
       </div>
 
       {/* Banner Image */}
       <div
-        className="h-[300px] md:h-[600px] bg-fixed bg-center bg-cover max-w-7xl mx-auto bg-no-repeat"
+        className="h-[300px] md:h-[600px] bg-fixed bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: `url('/feespage.jpg')` }}
       ></div>
 
@@ -34,7 +36,7 @@ export default function FeesCards() {
           <Link
             key={index}
             to={fee.url}
-            className="block bg-yellow-500 hover:bg-gray-200 transition rounded-xl p-6 shadow-md text-center font-bold text-lg text-gray-800 hover:shadow-lg"
+            className="block bg-yellow-600 hover:bg-gray-200 opacity-80 transition rounded-xl p-6 shadow-md text-center font-bold text-lg text-gray-800 hover:shadow-lg"
           >
             {fee.title}
           </Link>

@@ -2,7 +2,7 @@
 
 export default function Form3Fees() {
   return (
-    <section className="bg-white text-gray-800">
+    <section className="bg-slate-200 text-gray-800">
       {/* Header Section */}
       <div
         className="w-full bg-cover bg-center py-10 px-4 md:px-10"

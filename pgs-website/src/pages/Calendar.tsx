@@ -92,7 +92,7 @@ const CalendarOfEvents: React.FC = () => {
           {termsData.map((term, index) => (
             <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-200 hover:shadow-xl transition-shadow duration-300 flex flex-col">
               <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4">
-                <h2 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <h2 className="text-xl md:text-2xl font-bold text-slate-900 flex items-center gap-2">
                   <GraduationCap className="w-6 h-6" />
                   {term.name} - 2025
                 </h2>
