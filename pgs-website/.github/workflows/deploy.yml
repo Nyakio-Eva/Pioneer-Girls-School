@@ -1,0 +1,30 @@
+name: Build and Deploy Vite React App
+
+on:
+  push:
+    branches:
+      - main  # or your production branch
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Vite app
+        run: npm run build
+
+      - name: Deploy to Nginx directory
+        run: |
+          rm -rf /var/www/pgs-website/*
+          cp -r dist/* /var/www/pgs-website/
