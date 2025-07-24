@@ -131,7 +131,7 @@ export default function Footer() {
                         <div className="text-gray-300 text-sm">
                             <Link to={'/privacy-policy'} className="hover:text-yellow-400 mr-4">Privacy Policy</Link>
                             <Link to={'/disclaimer'} className="hover:text-yellow-400 mr-4">Disclaimer</Link>
-                            <Link to={'/site-map'} className="hover:text-yellow-400 mr-4">Sitemap</Link>
+                            <a href='https://www.pioneergirlsschool.co.ke/sitemap.xml' target='_blank' rel='noopener noreferrer' className="hover:text-yellow-400 mr-4">Sitemap</a>
                             <span className="container mx-auto text-center">
                                 &copy; {new Date().getFullYear()} Pioneer Girls School
                             </span>
