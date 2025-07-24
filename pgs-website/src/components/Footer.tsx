@@ -12,13 +12,13 @@ export default function Footer() {
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Quick Links</h4>
                         <ul className="space-y-2 text-lg">
                             <li><Link to="/" className="text-white hover:text-yellow-400 transition-colors flex items-center"> <ChevronRight className="w-4 h-4 mr-2 text-white" /> Home</Link></li>
-                            <li><Link to="/inspire" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Who We Are</Link></li>
-                            <li><Link to="/pathways" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Pathways</Link></li>
-                            <li><Link to="/student-life" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Student Life</Link></li>
-                            <li><Link to="/student-life" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Talents</Link></li>
-                            <li><Link to="/join-us" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Join Us</Link></li>
-                            <li><Link to="/fees" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Friendly Fees</Link></li>
-                            <li><Link to="#" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Discover Our Location</Link></li>
+                            <li><Link to="/inspire" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Inspire</Link></li>
+                            <li><Link to="/pathways" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Inspired Path</Link></li>
+                            <li><Link to="/boarding-life" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Inspire Study Life</Link></li>
+                            <li><Link to="/student-life" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Inspire Student Life</Link></li>
+                            <li><Link to="/be-inspired" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Be Inspired</Link></li>
+                            <li><Link to="/fees" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Fees</Link></li>
+                            <li><Link to="/https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Book a Visit</Link></li>
                             <li><Link to="/get-access" className="text-white hover:text-yellow-400 transition-colors flex items-center"><ChevronRight className="w-4 h-4 mr-2 text-white" />Get Access</Link></li>
                         </ul>
                     </div>
@@ -27,24 +27,42 @@ export default function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-yellow-400 uppercase tracking-wide">Contact Us</h4>
                         <div className="space-y-3 text-lg">
+                            {/* Phone */}
                             <div>
-                                <div className="font-semibold text-yellow-400">Telephone:</div>
-                                <div className="text-white">+254 205038234</div>
+                            <div className="font-semibold text-yellow-400">Telephone:</div>
+                                <a href="tel:+254205038234" className="text-white hover:text-yellow-400">
+                                    +254 205-038-234
+                                </a>
                             </div>
+
+                            {/* Email & Postal */}
                             <div>
-                                <div className="font-semibold text-yellow-400">Email Us:</div>
-                                <div className="text-white break-words">admissions@pioneergirlsjuniorschool.co.ke</div>
-                                <div className="text-white text-sm mt-1">Po Box 33-01015 Ithanga, Muranga</div>
+                            <div className="font-semibold text-yellow-400">Email Us:</div>
+                                <a
+                                    href="mailto:admissions@pioneergirlsschool.co.ke"
+                                    className="text-white break-words hover:text-yellow-400"
+                                >
+                                    admissions@pioneergirlsschool.co.ke
+                                </a>
+                            <div className="text-white text-sm mt-1 hover:text-yellow-400">
+                                Po Box 33-01015 Ithanga, Muranga
                             </div>
-                            <div>
-                                <div className="font-semibold text-yellow-400">Physical Address</div>
-                                <div className="text-white text-sm">
-                                    <div>Off Nairobi-Meru Highway, Delmonte Factory</div>
-                                    <div>road, Mitumbiri, Ithanga, Murang'a County</div>
-                                </div>
+                            </div>
+
+                            {/* Physical Address */}
+                            <div className="font-semibold text-yellow-400">Physical Address</div>
+                            <div className="text-white text-sm">
+                                <a
+                                href="https://www.google.com/maps/place/Pioneer+Girls+School/@-1.0257503,37.0830836,17z"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-yellow-300"
+                                >
+                                Off Nairobi-Meru Highway, Delmonte Factory road, <br /> Mitumbiri, Ithanga, Murang'a County
+                                </a>
                             </div>
                         </div>
-                    </div>
+                        </div>
 
                     {/* Our Schools */}
                     <div className="space-y-4">
@@ -111,11 +129,11 @@ export default function Footer() {
                             Vitae Abudantae | Life In Abundance
                         </div>
                         <div className="text-gray-300 text-sm">
-                            <a href="#" className="hover:text-yellow-400 mr-4">Privacy Policy</a>
-                            <a href="#" className="hover:text-yellow-400 mr-4">Disclaimer</a>
-                            <a href="#" className="hover:text-yellow-400 mr-4">Sitemap</a>
+                            <Link to={'/privacy-policy'} className="hover:text-yellow-400 mr-4">Privacy Policy</Link>
+                            <Link to={'/disclaimer'} className="hover:text-yellow-400 mr-4">Disclaimer</Link>
+                            <Link to={'/site-map'} className="hover:text-yellow-400 mr-4">Sitemap</Link>
                             <span className="container mx-auto text-center">
-                                &copy; {new Date().getFullYear()} Pioneer Schools
+                                &copy; {new Date().getFullYear()} Pioneer Girls School
                             </span>
                         </div>
                     </div>

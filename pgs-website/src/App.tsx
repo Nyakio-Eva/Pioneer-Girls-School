@@ -59,6 +59,9 @@ import TermsAndConditions from './components/TermsAndConditions';
 import StudentAccess from './pages/StudentAccess'; 
 import StaffAccess from './pages/StaffAccess'; 
 import CalendarOfEvents from './pages/Calendar';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+
+import Disclaimer from './pages/Disclaimer';
 
 function App() {
   return (
@@ -83,6 +86,9 @@ function App() {
           <Route path="/fees" element={<Fees />} />
           <Route path="/our-location" element={<Location />} />
           <Route path="/get-access" element={<GetAccess />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          
+          <Route path="/disclaimer" element={<Disclaimer />} />
 
           {/* Inspire Sub-routes */}
           <Route path="/inspire/history" element={<History />} />
