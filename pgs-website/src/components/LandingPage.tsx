@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { X } from "lucide-react"; // Optional: for close icon
 
 export default function LandingPage() {
@@ -20,10 +20,10 @@ export default function LandingPage() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
 
-        <div className=" relative z-10 text-center px-4">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg">
+        <div className=" relative z-10 text-center px-4 flex flex-col">
+          <Link to={'/be-inspired'} className="text-4xl md:text-5xl font-extrabold mb-6 drop-shadow-lg flex-col-1" >
             Be Inspired
-          </h2>
+          </Link>
           <button className="text-2xl md:text-5xl px-6 py-4 hover:bg-[#cfa53a] bg-transparent text-white rounded-full border border-white shadow-lg transition">
            GRADE 10 ADMISSIONS IN AUGUST 2025
           </button>

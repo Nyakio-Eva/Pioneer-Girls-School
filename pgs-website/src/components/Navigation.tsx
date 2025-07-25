@@ -178,12 +178,12 @@ export default function Navbar() {
       <div className="w-full px-6 flex items-center justify-between h-full relative py-4">
         {/* Logo */}
         <div 
-          className="font-bold text-base text-gray-900 flex items-center cursor-pointer z-20"  
+          className="font-bold text-xl text-gray-900 flex items-center cursor-pointer z-20"  
           onClick={() => handleNavigation('/')}
         >
-          <div className="h-10 w-10 flex items-center justify-center text-white font-bold text-sm">
+          {/*<div className="h-10 w-10 flex items-center justify-center text-white font-bold text-sm">
             <img src="/pgslogo.webp"/>
-          </div>
+          </div> */}
           <span className="ml-2">Pioneer Girls School</span>
         </div>
 

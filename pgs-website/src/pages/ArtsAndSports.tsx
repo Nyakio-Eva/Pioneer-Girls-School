@@ -61,10 +61,12 @@ const ArtsAndSportsSchool: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-200">
+    <div className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed" style={{ 
+          backgroundImage: `url('/artandsports.webp')`
+        }}>
       {/* Hero Section */}
       <motion.div 
-        className="relative h-screen bg-gradient-to-br from-[#2a2c2e] via-[#093056] to-[#1a1c1e] flex items-center justify-center"
+        className="relative min-h-screen  flex items-center justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -72,19 +74,19 @@ const ArtsAndSportsSchool: React.FC = () => {
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
           <motion.h1 
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#bfd5ee] mb-4"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            ARTS & SPORTS SCIENCES SCHOOL
+            SCHOOL OF ARTS & SPORTS SCIENCES 
           </motion.h1>
-          <motion.div
+          {/* <motion.div
             className="w-24 h-1 bg-[#f4a024] mx-auto"
             initial={{ width: 0 }}
             animate={{ width: 96 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-          ></motion.div>
+          ></motion.div> */}
         </div>
       </motion.div>
 
@@ -158,7 +160,7 @@ const ArtsAndSportsSchool: React.FC = () => {
       </div>
 
       {/* Aviation Section */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#093056] to-[#2a2c2e]">
+      <div className="py-16 px-4 sm:px-6 lg:px-8 bg-[#bfd5ee]">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -170,7 +172,7 @@ const ArtsAndSportsSchool: React.FC = () => {
               Explore Additional Opportunities
             </h2>
             <motion.a
-              href="/Inspired-Path/Aviation-Program"
+              href="/aviation"
               className="inline-block bg-[#f4a024] hover:bg-[#e5900b] text-white font-bold py-4 px-8 sm:px-12 rounded-lg text-xl sm:text-2xl transition-colors duration-300 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

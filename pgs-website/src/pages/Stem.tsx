@@ -49,7 +49,7 @@ const tracks: Track[] = [
     id: 'applied-sciences',
     title: 'Applied Sciences',
     description: 'Agriculture, Computer Science, Home Science',
-    imageSrc: '/complab.jpg',
+    imageSrc: '/agriculture2.jpg',
     subjects: [
       { name: 'Agriculture', description: 'Food production and land management.', imageSrc: '/agriculture.jpg' },
       { name: 'Computer Science', description: 'Computational theory and programming.', imageSrc: '/computer.jpg' },
@@ -60,7 +60,7 @@ const tracks: Track[] = [
     id: 'technical-studies',
     title: 'Technical Studies',
     description: 'Aviation, Building & Construction, Electricity, Metal Work, Power Mechanics, Woodwork, Media Technology, Marine & Fisheries',
-    imageSrc: '/flight-engine.jpg',
+    imageSrc: '/metaltech.jpg',
     subjects: [
       { name: 'Aviation', description: 'Principles of flight and aircraft.', imageSrc: '/aviationtech.jpg' },
       { name: 'Building & Construction', description: 'Construction techniques and materials.', imageSrc: '/woodtech.jpg' },
@@ -83,23 +83,27 @@ const Stem: React.FC = () => {
    
  
       {/* Hero */}
-      <section className="relative h-[40vh] py-40 bg-center bg-cover" style={{ backgroundImage: "url('/images/chemistry.jpg')" }}>
-        <div className="container h-[5vh] mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl text-blue-500 font-bold">STEM Pathways</h1>
-          <p className="text-lg md:text-xl text-blue-300 mt-4">
+      <section className="relative h-[80vh] bg-center bg-cover" style={{ backgroundImage: "url('/stemimg.webp')" }}>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center">
+          <h1 className="text-4xl md:text-6xl text-white font-bold">STEM Pathways</h1>
+          <p className="text-lg md:text-xl text-gray-200 mt-4">
             Explore our three tracks to specialize in the sciences and technology fields.
           </p>
         </div>
       </section>
  
       {/* Message */}
-      <section className="bg-[#0C356A] py-12 px-4">
+      <section className="bg-[#13365e] py-12 px-4">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-yellow-500 font-poppins mb-4 text-center">
+          <h2 className="text-3xl font-bold text-blue-100 font-poppins mb-4 text-center">
             Message from the Head of STEM School
           </h2>
-          <p className="text-yellow-500  mb-4 italic font-semibold">Dear Students and Parents,</p>
-          <p className="text-yellow-500 font-merriweather mb-4">
+          <p className="text-blue-100  mb-4 italic font-semibold">Dear Students and Parents,</p>
+          <p className="text-blue-100 font-merriweather mb-4">
             Dear Students and Parents
 
             At Pioneer Girls school, senior students interested in Science, Technology, Engineering and Mathematics (STEM) career, will be required to select 2 subjects' area of interest and focus.
@@ -108,7 +112,7 @@ const Stem: React.FC = () => {
             Best regards,
             Head of School
           </p>
-          <p className="mt-6 text-right font-semibold text-yellow-500">
+          <p className="mt-6 text-right font-semibold text-blue-100">
             Best regards,<br />Head of School
           </p>
         </div>

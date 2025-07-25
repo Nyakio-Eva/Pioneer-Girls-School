@@ -5,17 +5,17 @@ const Location: React.FC = () => {
   return (
     <div className="bg-gray-100">
       {/* Header Section */}
-      <div className="bg-[#0c356a] text-white py-16">
+      <div className="bg-[#13365e] text-[#bfd5ee] py-16">
         <div className="container mx-auto text-center">
           <h1 className="text-4xl md:text-5xl font-bold">
             Discover Our Location
           </h1>
-          <div className='mt-4 h-1 w-24 bg-white mx-auto'></div>
+          <div className='mt-4 h-1 w-24 bg-[#bfd5ee] mx-auto'></div>
         </div>
       </div>
 
       {/* Map Section */}
-      <div className="w-full h-96 md:h-[600px]">
+      <div className="w-full h-96 md:min-h-screen">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1789542583087!2d37.0830835756884!3d-1.0257503353983723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4dd45f575959%3A0xc96943478f1f6fa4!2sPioneer%20Girls%20School!5e0!3m2!1sen!2ske!4v1753200464237!5m2!1sen!2ske" width="100%"
         height="100%"
         className="border-0 w-full h-full"
@@ -26,11 +26,11 @@ const Location: React.FC = () => {
 
       {/* Contact Section */}
       <div
-        className="relative bg-cover bg-center text-white py-20 min-h-screen bg-fixed"
+        className="relative bg-cover bg-center text-white py-20 h-[500px] bg-fixed"
         style={{ backgroundImage: "url('/contactpic.webp')" }}
       >
         <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="relative container mx-auto px-4 text-center py-16 items-center justify-center my-16">
+        <div className="relative container mx-auto px-4 text-center py-16 items-center justify-center">
             <h2 className="text-4xl font-bold mb-6">Contact Us</h2>
             <div className="max-w-2xl mx-auto space-y-3">
                 <p className="text-lg">

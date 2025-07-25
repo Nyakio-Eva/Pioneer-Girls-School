@@ -81,8 +81,8 @@ const TailorMadeLeadershipPathways: React.FC = () => (
     </section>
 
     {/* Cards Grid */}
-    <section className="py-16 bg-slate-100">
-      <div className="container mx-auto px-4 text-center mb-12 py-10">
+    <section className="py-16 bg-slate-100 lg:max-w-9xl">
+      <div className="container mx-auto px-8 text-center mb-12 py-10">
         <h2 className="text-3xl md:text-4xl font-semibold text-[#093056]">
         COMPULSORY SUBJECTS ​
         <br />
@@ -90,7 +90,7 @@ const TailorMadeLeadershipPathways: React.FC = () => (
         </h2>
         <p className='pt-10'>At Senior School, ALL students will be required to take the following subjects.</p> 
       </div>
-      <div className="container mx-auto px-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto px-6 grid gap-8 md:grid-cols-3 lg:grid-cols-4">
         {cards.map((c, i) => (
           <InfoCard key={i} {...c} />
         ))}

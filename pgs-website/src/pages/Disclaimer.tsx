@@ -39,17 +39,14 @@ const DisclaimerSection: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 py-16 px-4">
       <div className="md:max-w-7xl max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-blue-900 rounded-full mb-6 shadow-lg">
-            <Shield className="w-10 h-10 text-white" />
+        <div className="flex items-center justify-center mb-16">
+          <div className="inline-flex items-center justify-center w-15 h-15 bg-blue-900 rounded-full mb-6 shadow-lg mr-4">
+            <Shield className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 bg-clip-text  mb-4">
             Disclaimer
+            <div className='w-24 h-1 bg-blue-900'></div>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Important information regarding the use of our website and services
-          </p>
-          <div className="w-24 h-1 bg-blue-900 mx-auto mt-6 rounded-full"></div>
         </div>
 
         {/* Disclaimer Cards Grid */}

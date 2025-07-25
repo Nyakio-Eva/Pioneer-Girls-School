@@ -1,6 +1,6 @@
 export default function NursingCare() {
   return (
-    <section className="min-h-screen bg-[#f9fafb] flex items-center justify-center py-16 px-4">
+    <section className="min-h-screen bg-slate-200 flex items-center justify-center py-16 px-4">
       <div className="md:max-w-9xl  mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left: Image with overlay */}
         <div className="relative w-full h-100 md:h-[700px]">

@@ -1,11 +1,11 @@
 export default function BasketBall() {
   return (
-    <section className="min-h-screen bg-[#f9fafb] flex items-center justify-center py-16 px-4">
+    <section className="min-h-screen bg-gray-200 flex items-center justify-center py-16 px-4">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left: Image with overlay */}
         <div className="relative w-full h-82 md:h-[600px]">
           <img
-            src="/basketball1.webp"
+            src="/sportsrecreation.webp"
             alt="basketball"
             className="w-full h-full object-cover rounded-lg shadow-lg"
           />
