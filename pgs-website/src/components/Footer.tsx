@@ -143,7 +143,7 @@ export default function Footer() {
 
                 {/* Floating Chat Button */}
                 <div className="fixed bottom-6 left-6">
-                    <Link to={'/https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F'} className="w-16 h-12 bg-[#bfd5ee] rounded-lg flex items-center justify-center hover:bg-blue-900 hover:text-white transition-colors shadow-lg py-2 px-16 whitespace-nowrap">
+                    <Link to={'https://enquireto.pioneergroupofschools.co.ke/SignIn?ReturnUrl=%2F'} className="w-16 h-12 bg-[#bfd5ee] rounded-lg flex items-center justify-center hover:bg-blue-900 hover:text-white transition-colors shadow-lg py-2 px-16 whitespace-nowrap">
                         Enroll Today
                     </Link>
                 </div>
